@@ -608,6 +608,51 @@
       line-height: 1.5;
     }
 
+    .spelregels-tabel {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    .spelregels-tabel th {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0 0 8px;
+      color: rgba(255,255,255,0.5);
+      text-align: left;
+    }
+
+    .spelregels-tabel th:last-child {
+      padding-left: 20px;
+    }
+
+    .spelregels-tabel td {
+      padding: 5px 0;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+
+    .spelregels-tabel td:first-child::before {
+      content: '✓ ';
+      color: #6ee7b7;
+      font-weight: 600;
+    }
+
+    .spelregels-tabel td:last-child {
+      padding-left: 20px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .spelregels-tabel td:last-child::before {
+      content: '✕ ';
+      color: #fca5a5;
+      font-weight: 600;
+    }
+
     .schrijver__tip {
       font-size: 13px;
       color: rgba(255,255,255,0.8);
@@ -960,13 +1005,29 @@
       <p class="schrijver__sub">Schrijf je "Omdat..."-zin en deel hem direct op X. Geen account nodig, geen wachten.</p>
 
       <div class="schrijver__spelregels">
-        <p class="schrijver__spelregels-titel">Jouw "Omdat...", jouw spelregels:</p>
-        <ul>
-          <li>Schrijf vanuit jezelf. Wat raakt jou, wat wil jij anders?</li>
-          <li>Ga over thema's, niet over personen</li>
-          <li>Maak het iets waar je met je naam achter staat</li>
-          <li>E&eacute;n krachtige zin. Dat is alles wat je nodig hebt.</li>
-        </ul>
+        <p class="schrijver__spelregels-titel">Jouw spelregels:</p>
+        <table class="spelregels-tabel">
+          <thead>
+            <tr>
+              <th>Wel</th>
+              <th>Niet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Schrijf vanuit jouw eigen reden</td>
+              <td>Schrijf wat iedereen al roept</td>
+            </tr>
+            <tr>
+              <td>Zet anderen aan het denken</td>
+              <td>Mensen persoonlijk aanvallen</td>
+            </tr>
+            <tr>
+              <td>Gebruik jouw eigen zin</td>
+              <td>Beledigend of agressief formuleren</td>
+            </tr>
+          </tbody>
+        </table>
         <p class="schrijver__spelregels-note">Jouw "Omdat..." wordt gedeeld met #IkLaatMeHoren.<br>Dat betekent: jouw woorden, jouw verantwoordelijkheid.</p>
       </div>
 
