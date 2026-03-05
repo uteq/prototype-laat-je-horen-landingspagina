@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laat je Horen — Jouw stem telt op 18 maart</title>
+  <meta name="description" content="Op 18 maart laten gewone Nederlanders zien dat hun stem er echt toe doet. Doe mee met Laat je Horen.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@1,700&family=Inter:wght@400;500;600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@1,700&family=Inter:wght@400;500;600&display=swap">
+  </noscript>
+
+  <style>
+    :root {
+      --red:   #C8102E;
+      --blue:  #003DA5;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --gray:  #BDBDBD;
+      --light: #F5F5F5;
+      --red-dark: #a00e24;
+
+      --display: 'Bebas Neue', sans-serif;
+      --head:    'Barlow Condensed', sans-serif;
+      --body:    'Inter', sans-serif;
+
+      --wrap: 1100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Marker underline ── */
+    .marker-wrap { display: inline-block; }
+    .underline-marker { display: block; width: 100%; height: 10px; margin-top: 2px; }
+
+    /* ─────────────────────────────────
+       DATUM-BALK
+    ───────────────────────────────── */
+    .datumbalk {
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+      padding: 11px 24px;
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    #countdown { opacity: 0.85; }
+
+    /* ─────────────────────────────────
+       NAV
+    ───────────────────────────────── */
+    .nav {
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #EBEBEB;
+    }
+
+    .nav__logo { height: 44px; width: auto; }
+
+    /* ─────────────────────────────────
+       HERO
+    ───────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 60px 32px 80px;
+      overflow: hidden;
+    }
+
+    /* Rode verticale balk links — als kranten-accent */
+    .hero::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: var(--red);
+    }
+
+    .hero__inner {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero__label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .hero__tagline {
+      font-family: var(--display);
+      font-size: clamp(64px, 8.5vw, 110px);
+      line-height: 0.93;
+      letter-spacing: 0.01em;
+      color: var(--black);
+    }
+
+    .hero__tagline em {
+      font-style: normal;
+      color: var(--red);
+      display: block;
+    }
+
+    .hero__divider {
+      width: 48px;
+      height: 3px;
+      background: var(--red);
+      margin: 28px 0;
+    }
+
+    .hero__sub {
+      font-size: 18px;
+      color: #333;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 15px 36px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn--red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn--red:hover {
+      background: var(--red-dark);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--black);
+      border: 2px solid var(--black);
+      margin-left: 12px;
+    }
+
+    .btn--outline:hover {
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .hero__ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero__cta-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .hero__image {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Achtergrond cirkel als compositie-element */
+    .hero__image::before {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: var(--light);
+      z-index: 0;
+    }
+
+    .hero__megafoon {
+      max-width: 360px;
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50%       { transform: translateY(-12px) rotate(1deg); }
+    }
+
+    /* ─────────────────────────────────
+       MANIFESTO-BLOK
+    ───────────────────────────────── */
+    .manifesto {
+      background: var(--black);
+      padding: 80px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoratieve rode streep rechts */
+    .manifesto::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: var(--red);
+    }
+
+    .manifesto__inner {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .manifesto__label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #FF4D6D;
+      border-top: 2px solid #FF4D6D;
+      padding-top: 16px;
+    }
+
+    .manifesto__quote {
+      font-family: var(--display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .manifesto__quote span {
+      color: var(--red);
+    }
+
+    .manifesto__body {
+      font-size: 16px;
+      color: #C0C0C0;
+      margin-top: 28px;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .manifesto__body strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* ─────────────────────────────────
+       WAAROM
+    ───────────────────────────────── */
+    .waarom {
+      padding: 88px 32px;
+      background: var(--light);
+    }
+
+    .waarom__inner {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sectie-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .sectie-titel {
+      font-family: var(--head);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(30px, 3.5vw, 46px);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .waarom__tekst p {
+      font-size: 17px;
+      color: #333;
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .waarom__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .stat {
+      border-left: 4px solid var(--red);
+      padding-left: 24px;
+    }
+
+    .stat__nummer {
+      font-family: var(--display);
+      font-size: 56px;
+      line-height: 1;
+      color: var(--black);
+    }
+
+    .stat__label {
+      font-size: 15px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* ─────────────────────────────────
+       HOE WERKT HET
+    ───────────────────────────────── */
+    .hoe {
+      padding: 88px 32px;
+      background: var(--white);
+    }
+
+    .hoe__inner {
+      max-width: var(--wrap);
+      margin: 0 auto;
+    }
+
+    .hoe__header {
+      margin-bottom: 56px;
+    }
+
+    .hoe__stappen {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      position: relative;
+    }
+
+    .hoe__stappen::before {
+      content: '';
+      position: absolute;
+      top: 27px;
+      left: calc(16.67% + 20px);
+      right: calc(16.67% + 20px);
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--gray) 0, var(--gray) 6px,
+        transparent 6px, transparent 14px
+      );
+    }
+
+    .stap__nummer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--display);
+      font-size: 28px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stap__titel {
+      font-family: var(--head);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .stap__tekst {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────
+       OMDAT-SCHRIJVER (interactief)
+    ───────────────────────────────── */
+    .schrijver {
+      background: var(--blue);
+      padding: 88px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtiel raster-patroon als textuur */
+    .schrijver::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .schrijver__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .schrijver__label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 16px;
+    }
+
+    .schrijver__titel {
+      font-family: var(--display);
+      font-size: clamp(36px, 5vw, 60px);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .schrijver__sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 40px;
+      line-height: 1.65;
+    }
+
+    .schrijver__form {
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.2);
+      padding: 32px;
+      text-align: left;
+    }
+
+    .schrijver__prefix {
+      font-family: var(--display);
+      font-size: 28px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+    }
+
+    .schrijver__textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      font-family: var(--head);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(22px, 3vw, 30px);
+      padding: 8px 0 12px;
+      outline: none;
+      resize: none;
+      line-height: 1.4;
+      min-height: 80px;
+      transition: border-color 0.2s;
+    }
+
+    .schrijver__textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .schrijver__textarea:focus {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .schrijver__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .schrijver__hashtag {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.02em;
+    }
+
+    .btn--x {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn--x:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn--x svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .schrijver__spelregels {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .schrijver__spelregels-titel {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 10px;
+    }
+
+    .schrijver__spelregels ul {
+      list-style: none;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+
+    .schrijver__spelregels li::before {
+      content: '\2713\0020';
+      color: rgba(255,255,255,0.5);
+    }
+
+    .schrijver__spelregels-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .schrijver__tip {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* ─────────────────────────────────
+       OMDAT-KAARTEN
+    ───────────────────────────────── */
+    .omdat {
+      padding: 88px 32px;
+      background: var(--light);
+    }
+
+    .omdat__inner {
+      max-width: var(--wrap);
+      margin: 0 auto;
+    }
+
+    .omdat__header {
+      margin-bottom: 48px;
+    }
+
+    .omdat__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .kaart {
+      background: var(--white);
+      border-left: 4px solid var(--red);
+      padding: 28px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .kaart:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .kaart__tekst {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .kaart__hashtag {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    /* ─────────────────────────────────
+       NIEUWSBRIEF
+    ───────────────────────────────── */
+    .nieuwsbrief {
+      padding: 88px 32px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .nieuwsbrief__inner {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .nieuwsbrief__titel {
+      font-family: var(--head);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(30px, 4vw, 46px);
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .nieuwsbrief__sub {
+      font-size: 16px;
+      color: #888;
+      margin-top: 16px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    /*
+      ── EMAIL PROVIDER PLACEHOLDER ──────────────────────
+      Vervang action="#" door je lijst-URL:
+        Mailchimp:   https://us1.list-manage.com/subscribe/post?u=...
+        ConvertKit:  https://app.convertkit.com/forms/XXXXX/subscriptions
+        MailerLite:  https://assets.mailerlite.com/jsonp/...
+      ────────────────────────────────────────────────────
+    */
+    .signup-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto 24px;
+    }
+
+    .signup-form input {
+      flex: 1;
+      padding: 15px 18px;
+      font-family: var(--body);
+      font-size: 15px;
+      border: 2px solid #333;
+      background: #111;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .signup-form input::placeholder { color: #777; }
+    .signup-form input:focus { border-color: var(--red); }
+
+    .signup-form button {
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 15px 24px;
+      border: 2px solid var(--red);
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .signup-form button:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+    .signup-success {
+      display: none;
+      color: #6ee7b7;
+      font-weight: 500;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .signup-error {
+      display: none;
+      color: #fca5a5;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+
+    .signup-form button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .nieuwsbrief__x {
+      font-size: 14px;
+      color: #888;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .nieuwsbrief__x:hover { color: var(--white); }
+
+    /* ─────────────────────────────────
+       FOOTER
+    ───────────────────────────────── */
+    .footer {
+      padding: 20px 32px;
+      background: var(--black);
+      border-top: 1px solid #1a1a1a;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .footer .hashtag { color: #6B9FFF; }
+
+    /* ─────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────── */
+    @media (max-width: 900px) {
+      .manifesto__inner { grid-template-columns: 1fr; gap: 32px; }
+      .waarom__inner     { grid-template-columns: 1fr; gap: 48px; }
+      .hoe__stappen      { grid-template-columns: 1fr; gap: 36px; }
+      .hoe__stappen::before { display: none; }
+      .omdat__grid       { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero__inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero__image { order: -1; }
+      .hero__megafoon { max-width: 200px; margin: 0 auto; }
+      .hero__image::before { width: 280px; height: 280px; right: 50%; transform: translate(50%, -50%); }
+      .hero__ctas { flex-direction: column; }
+      .btn--outline { margin-left: 0; }
+      .omdat__grid { grid-template-columns: 1fr; }
+      .signup-form { flex-direction: column; }
+      .signup-form button { width: 100%; }
+      .schrijver__footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DATUM-BALK -->
+  <div class="datumbalk">
+    18 MAART 2026 &mdash; GEMEENTERAADSVERKIEZINGEN &nbsp;&middot;&nbsp; <span id="countdown">laden&hellip;</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/">
+      <picture>
+        <source srcset="assets/logo-ljh-kleur.webp" type="image/webp">
+        <img src="assets/logo-ljh-kleur.png" alt="Laat je Horen"
+             class="nav__logo" width="333" height="200">
+      </picture>
+    </a>
+  </nav>
+
+  <main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="hero__label">Burgerbeweging &mdash; Nederland, 2026</p>
+        <h1 class="hero__tagline">
+          Jouw<br>
+          stem<br>
+          <em>telt.</em>
+        </h1>
+        <div class="hero__divider"></div>
+        <p class="hero__sub">Op 18 maart laten gewone Nederlanders zien dat hun stem er echt toe doet. Van Noord tot Zuid, van stad tot dorp. Doe mee.</p>
+        <div class="hero__ctas">
+          <div class="hero__cta-group">
+            <span class="hero__cta-label">Blijf op de hoogte</span>
+            <a href="#aanmelden" class="btn btn--red">Meld je aan</a>
+          </div>
+          <div class="hero__cta-group">
+            <span class="hero__cta-label">Deel jouw 'Omdat...'-reden om te stemmen</span>
+            <a href="#schrijver" class="btn btn--outline">Genereer je 'Omdat...'</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__image">
+        <picture>
+          <source srcset="assets/megafoon-ljh-kleur.webp" type="image/webp">
+          <img src="assets/megafoon-ljh-kleur.png" alt=""
+               class="hero__megafoon" aria-hidden="true"
+               width="800" height="800" fetchpriority="high">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO-BLOK -->
+  <section class="manifesto">
+    <div class="manifesto__inner">
+      <div>
+        <p class="manifesto__label">Wat is Laat je horen?</p>
+      </div>
+      <div>
+        <blockquote class="manifesto__quote">
+          Zodat jij<br>
+          <span>gehoord wordt.</span>
+        </blockquote>
+        <p class="manifesto__body">
+          Wij bieden een onafhankelijk, partijloos platform waar gewone Nederlanders hun mening kunnen laten horen over wat er &eacute;cht speelt in Nederland. Puur van onderaf, zonder tussenpersonen of partijbelangen. <strong>Jouw mening doet ertoe.</strong> Zeg wat jou raakt, genereer je "Omdat...", deel 'm. Hoe meer mensen dat doen, hoe luider het klinkt.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAAROM -->
+  <section class="waarom">
+    <div class="waarom__inner">
+      <div class="waarom__tekst">
+        <p class="sectie-label">Waarom</p>
+        <h2 class="sectie-titel">
+          <span class="marker-wrap">
+            Waarom Laat je Horen?
+            <svg class="underline-marker" viewBox="0 0 380 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,7 Q95,1 190,7 Q285,13 380,7" stroke="#C8102E" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </h2>
+        <p>Omdat echte verandering begint bij de stem van het volk. Zodat we een Nederland bouwen dat weer als van ons voelt, waarin kansen krijgen en je steentje bijdragen weer vanzelfsprekend zijn.</p>
+      </div>
+      <div class="waarom__stats">
+        <div class="stat">
+          <div class="stat__nummer">18</div>
+          <div class="stat__label">maart 2026 &mdash; de dag om je te laten horen</div>
+        </div>
+        <div class="stat">
+          <div class="stat__nummer">1</div>
+          <div class="stat__label">zin is genoeg om jouw stem te laten klinken</div>
+        </div>
+        <div class="stat">
+          <div class="stat__nummer">&infin;</div>
+          <div class="stat__label">redenen om mee te doen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOE WERKT HET -->
+  <section class="hoe">
+    <div class="hoe__inner">
+      <div class="hoe__header">
+        <p class="sectie-label">Hoe werkt het</p>
+        <h2 class="sectie-titel">
+          <span class="marker-wrap">
+            Drie stappen, &eacute;&eacute;n beweging
+            <svg class="underline-marker" viewBox="0 0 420 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,7 Q105,1 210,7 Q315,13 420,7" stroke="#C8102E" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </h2>
+      </div>
+
+      <div class="hoe__stappen">
+        <div class="stap">
+          <div class="stap__nummer">1</div>
+          <h3 class="stap__titel">Schrijf jouw "Omdat..."</h3>
+          <p class="stap__tekst">Wat raakt jou? Wat moet er anders? Formuleer het in &eacute;&eacute;n krachtige zin, beginnend met "Omdat".</p>
+        </div>
+        <div class="stap">
+          <div class="stap__nummer">2</div>
+          <h3 class="stap__titel">Deel met #IkLaatMeHoren</h3>
+          <p class="stap__tekst">Post jouw zin op sociale media. Gebruik de hashtag zodat we samen zichtbaar maken wat er leeft in Nederland.</p>
+        </div>
+        <div class="stap">
+          <div class="stap__nummer">3</div>
+          <h3 class="stap__titel">Laat het weerklinken</h3>
+          <p class="stap__tekst">Hoe meer stemmen, hoe luider het signaal. De politiek kan niet om ons heen als we massaal hetzelfde laten horen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OMDAT-SCHRIJVER (interactief) -->
+  <section class="schrijver" id="schrijver">
+    <div class="schrijver__inner">
+      <p class="schrijver__label">Doe mee &mdash; nu meteen</p>
+      <h2 class="schrijver__titel">Jouw stem. Jouw woorden.</h2>
+      <p class="schrijver__sub">Schrijf je "Omdat..."-zin en deel hem direct op X. Geen account nodig, geen wachten.</p>
+
+      <div class="schrijver__spelregels">
+        <p class="schrijver__spelregels-titel">Jouw "Omdat...", jouw spelregels:</p>
+        <ul>
+          <li>Schrijf vanuit jezelf. Wat raakt jou, wat wil jij anders?</li>
+          <li>Ga over thema's, niet over personen</li>
+          <li>Maak het iets waar je met je naam achter staat</li>
+          <li>E&eacute;n krachtige zin. Dat is alles wat je nodig hebt.</li>
+        </ul>
+        <p class="schrijver__spelregels-note">Jouw "Omdat..." wordt gedeeld met #IkLaatMeHoren.<br>Dat betekent: jouw woorden, jouw verantwoordelijkheid.</p>
+      </div>
+
+      <div class="schrijver__form">
+        <p class="schrijver__prefix">Omdat&hellip;</p>
+        <textarea
+          class="schrijver__textarea"
+          id="omvatTekst"
+          placeholder="jouw reden om je te laten horen"
+          rows="3"
+          maxlength="200"
+          aria-label="Schrijf jouw 'Omdat...'-zin"></textarea>
+        <div class="schrijver__footer">
+          <span class="schrijver__hashtag">#IkLaatMeHoren &nbsp;&middot;&nbsp; @LaatJeHorenNed</span>
+          <button class="btn--x" id="deelBtn" onclick="deelOpX()">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.623L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+            </svg>
+            Deel op X
+          </button>
+        </div>
+      </div>
+      <p class="schrijver__tip">Binnenkort: genereer automatisch een deelbare afbeelding met jouw zin.</p>
+    </div>
+  </section>
+
+  <!-- OMDAT-KAARTEN -->
+  <section class="omdat">
+    <div class="omdat__inner">
+      <div class="omdat__header">
+        <p class="sectie-label">Voorbeelden</p>
+        <h2 class="sectie-titel">
+          <span class="marker-wrap">
+            Anderen gingen je voor
+            <svg class="underline-marker" viewBox="0 0 360 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,7 Q90,1 180,7 Q270,13 360,7" stroke="#C8102E" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </h2>
+      </div>
+
+      <div class="omdat__grid">
+        <article class="kaart">
+          <p class="kaart__tekst">Omdat starters een eerlijke kans op een woning verdienen!</p>
+          <span class="kaart__hashtag">@LaatJeHoren</span>
+        </article>
+        <article class="kaart">
+          <p class="kaart__tekst">Omdat een voltijdbaan genoeg moet zijn om zorgeloos van te leven!</p>
+          <span class="kaart__hashtag">@LaatJeHoren</span>
+        </article>
+        <article class="kaart">
+          <p class="kaart__tekst">Omdat we lokaal meer te zeggen willen hebben over onze eigen leefomgeving!</p>
+          <span class="kaart__hashtag">@LaatJeHoren</span>
+        </article>
+        <article class="kaart">
+          <p class="kaart__tekst">Omdat onze zorg er moet zijn als je haar nodig hebt, niet alleen als je het kunt betalen!</p>
+          <span class="kaart__hashtag">@LaatJeHoren</span>
+        </article>
+        <article class="kaart">
+          <p class="kaart__tekst">Omdat goed onderwijs de basis is van gelijke kansen voor iedereen!</p>
+          <span class="kaart__hashtag">@LaatJeHoren</span>
+        </article>
+        <article class="kaart">
+          <p class="kaart__tekst">Omdat ondernemers die hun nek uitsteken daarvoor beloond horen te worden, niet gestraft!</p>
+          <span class="kaart__hashtag">@LaatJeHoren</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIEUWSBRIEF -->
+  <section class="nieuwsbrief" id="aanmelden">
+    <div class="nieuwsbrief__inner">
+      <h2 class="nieuwsbrief__titel">
+        <span class="marker-wrap">
+          Blijf op de hoogte
+          <svg class="underline-marker" viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,7 Q75,1 150,7 Q225,13 300,7" stroke="#C8102E" stroke-width="4" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </h2>
+      <p class="nieuwsbrief__sub">Meld je aan en ontvang updates over wat er volgt, inclusief de lancering van de #IkLaatMeHoren-kaartgenerator.</p>
+
+      <form class="signup-form" id="signupForm" novalidate>
+        <!-- Honeypot: verborgen voor mensen, bots vullen dit in -->
+        <input type="text" name="website" id="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="email" name="email" id="signupEmail" placeholder="jouw@emailadres.nl" required autocomplete="email">
+        <button type="submit" id="signupBtn">Aanmelden</button>
+      </form>
+      <p class="signup-success" id="signupSuccess">Dankje! Je staat op de lijst.</p>
+      <p class="signup-error" id="signupError">Oeps, er ging iets mis. Probeer het opnieuw.</p>
+
+      <a href="https://x.com/LaatJeHorenNed" class="nieuwsbrief__x" target="_blank" rel="noopener">
+        Volg @LaatJeHorenNed op X &rarr;
+      </a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 Laat je Horen &middot; <span class="hashtag">#LaatJeHoren</span></p>
+  </footer>
+
+  <script>
+    // ── Countdown ──────────────────────────────────────────
+    (function () {
+      var doel = new Date('2026-03-18T00:00:00');
+      var el   = document.getElementById('countdown');
+      function update() {
+        var diff  = doel - new Date();
+        if (diff <= 0) { el.textContent = 'VANDAAG IS HET ZOVER'; return; }
+        var dagen = Math.floor(diff / 864e5);
+        el.textContent = dagen === 1 ? 'NOG 1 DAG' : 'NOG ' + dagen + ' DAGEN';
+      }
+      update();
+      setInterval(update, 60000);
+    })();
+
+    // ── Deel op X ─────────────────────────────────────────
+    function deelOpX() {
+      var tekst = document.getElementById('omvatTekst').value.trim();
+      if (!tekst) {
+        document.getElementById('omvatTekst').focus();
+        return;
+      }
+      // Zin mag niet beginnen met "Omdat" (gebruiker typt alleen het vervolg)
+      var volledig = 'Omdat ' + tekst + '! #IkLaatMeHoren';
+      var url = 'https://x.com/intent/tweet?text=' + encodeURIComponent(volledig)
+              + '&via=LaatJeHorenNed';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    // ── Enter = deel (niet newline) ────────────────────────
+    document.getElementById('omvatTekst').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        deelOpX();
+      }
+    });
+
+    // ── Nieuwsbrief form ───────────────────────────────────
+    //
+    // Stap 1: maak een Google Sheet aan en voeg het Apps Script toe
+    //         (zie landingspagina/SETUP-GOOGLE-SHEETS.md voor exacte instructies)
+    // Stap 2: plak hier de URL van je gedeployde Apps Script web app:
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyOSb4ga3uevukliCoBxnqxgAlGw3isE2yaPTvfOKNf5pVg2v5otgRVoUAChgLSS5rh/exec';
+    //
+    // Zolang SHEETS_URL leeg is, simuleert de knop een bevestiging (demo-modus).
+
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Honeypot check: bots vullen het verborgen veld in, mensen niet
+      if (document.getElementById('honeypot').value) return;
+
+      var email = document.getElementById('signupEmail').value.trim();
+      if (!email) return;
+
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('signupSuccess').style.display = 'block';
+
+      if (!SHEETS_URL) return;
+
+      fetch(SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors', // vereist voor Google Apps Script cross-origin
+        body: new URLSearchParams({ email: email })
+      }).catch(function () {
+        // stil falen — bevestiging is al getoond
+      });
+    });
+  </script>
+
+</body>
+</html>
